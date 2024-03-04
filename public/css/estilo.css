@@ -1,0 +1,86 @@
+
+form{
+    margin-top: 30px;
+    /* text-align: center; */
+}
+form input{
+    margin-bottom: 10px;
+}
+
+a{
+    margin-bottom: 5px;
+}
+.textos{
+    display: flex;
+    justify-content: space-around;
+   margin-top: 30px;
+   font-weight: bold;
+}
+form input[type="submit"]{
+    margin-top: 5px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+   
+    padding: 5px;
+}
+.topo{
+    background-color: blue;
+    height: 40px;
+}
+.campo_form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.campo_form label{
+    margin-bottom: .5rem;
+}
+.campo_form input{
+    margin-bottom: 5px;
+}
+i.social{
+    font-size: 4rem;
+    text-align: center;
+}
+
+
+.logo{
+  display: flex;
+  justify-content: center;
+}
+.botoes_form{
+    display: flex;
+    justify-content: space-around;
+
+}
+footer{
+    margin-top: 2rem;
+}
+
+.wrapper{
+    min-height: 100vh; 
+ }
+ body{
+    min-width: 372px;
+ }
+
+ .titulos{
+    text-align: center;
+    margin-bottom:25px;
+
+ }
+.form-row{
+    display: flex;
+    gap: 10px;
+}
+.form-row input{
+    width: 350px;
+}
+ /* .form-floating input{
+    width: 450px;
+ } */

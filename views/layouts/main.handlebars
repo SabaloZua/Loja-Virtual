@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-i/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+    {{!- Atributo style  é um objecto que armazena um array de objectos Ex: style:  [ {link:estilosDinamico.css}] !-}}
+    {{!- nesse caso ele vai criar links css dinamincamente de acordo com o valor do objecto Link !-}}
+    {{! como ficará <link rel="stylesheet" href="/css/estilosDinamico}}
+    {{#each style}}
+    <link rel="stylesheet" href="/css/{{Link}}">
+    {{/each}}
+    <title>Loja Virtual</title>
+</head>
+<body>
+    <div class="d-flex flex-column wrapper">
+  
+    {{>_navbar}}
+    
+    {{{body}}}
+    
+    
+    {{>_footer}}
+
+ 
+
+    </div>
+    <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+    {{#each scrpit}}
+    <script src="/scripts/{{linkscrpt}}"></script>
+    {{/each}}
+</body>
+</html>

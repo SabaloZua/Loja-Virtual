@@ -1,0 +1,27 @@
+{
+  "name": "E-commerce",
+  "version": "1.0.0",
+  "description": "Este é um projecto de um e-commerce do tipo custumer to custumer  ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "expres-handlebrs",
+    "mysql",
+    "E-commerce"
+  ],
+  "author": "Grupo 1 de TPL da sala B207 do ano de 2023/2024",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "express-handlebars": "^7.1.2",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.2"
+  }
+}

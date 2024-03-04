@@ -1,0 +1,12 @@
+.card{
+    min-height: 463px;
+  width: 100%;
+}
+.imgProd{
+    min-height: 293.77px;
+}
+.imgProd  img{
+    object-fit: contain;
+    width: 100%;
+    min-height: 293.77px;
+}

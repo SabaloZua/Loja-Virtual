@@ -1,0 +1,59 @@
+<main class="flex-fill">
+
+            <div class="container">
+                <div class="row">
+                 <h1 class="titulos">Cadastro de Usuarios</h1>
+
+                    <form class="col-12 col-md-8 col-lg-9" action="/Usuario/Cadastrar" method="post">            
+                        <div class="form-row flex-column flex-md-row">
+                          <div class="form-group ">
+                            <label for="inputNome">Nome </label>
+                            <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nomeusuario">
+                          </div>
+                       
+                          <div class="form-group">
+                            <label for="inputTel">Telefone</label>
+                            <input type="tel" class="form-control" id="inputTel" placeholder="(+244) 999 999 999" name="telefone">
+                          </div>
+                        </div>
+
+                        <div class="form-row flex-column flex-md-row">
+                            <div class="form-group">
+                                <label for="inputEmail">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Digite aqui o Email" name="email">
+                              </div>
+                            
+                              <div class="form-group">
+                                <label for="inputSenha">Senha</label>
+                                <input type="password" class="form-control" id="inputSenha" placeholder="Digite a sua senha " name="senha">
+                              </div>
+                        
+                          
+                        </div>
+
+                        <div class="form-row flex-column flex-md-row">
+                         
+
+                          <div class="form-group ">
+                            <label for="inputMorada">Morada</label>
+                            <input type="text" class="form-control" id="inputMorada" placeholder="Luanda Maianga" name="morada">
+                          </div>
+
+                          <div class="form-group ">
+                            <label for="inputTipoUsuario">Função Comercial</label>
+                            <select id="inputTipoUsuario" class="form-control" name="fucao">
+                              <option selected>Selecione  o Tipo</option>
+                             {{#each fucaoComercial}}
+                              <option value="{{N_id_fucao}}">{{T_desc}}</option>
+                              {{/each}}
+                            </select>
+                          </div>
+                       
+                        </div>
+                        <button type="submit" class="btn btn-danger mt-2">Cadastrar</button>
+                      </form>
+
+                </div>
+                
+            </div>
+        </main>
