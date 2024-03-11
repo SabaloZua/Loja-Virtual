@@ -1,30 +1,39 @@
 <main class="flex-fill">
-    <div class="container">
-      <form action="/Produto/Cadastrar" method="post" enctype="multipart/form-data">
+  <div class="container">
+    <form action="/Produto/Cadastrar" method="post" enctype="multipart/form-data">
       <div class="row g-3">
         <div class="col-12 col-sm-6">
-            <img src="/imgs/add.svg" alt=""  id="imagem" class="img-thumbnail">
-            
-            <input type="file"  name="imagem" class=" btn btn-danger mt-3" id="f_foto" > 
-            <br class="clearfix">
-            </div>
+          <div class="imgProduto">
+            <img src="/imgs/add.svg" alt="" id="imagem" class="img-thumbnail">
+          </div>
 
-            <div class="col-12 col-sm-6">
-                    <input type="text"  name="nome" class="form-control" placeholder="Nome do produto">
-                    <input type="number" name="valor" class="form-control" placeholder="valor do produto">
-                    <textarea placeholder="Decrição do Produto" class="form-control mb-2 " name="dsc" style="height: 200px;"></textarea>
-                    <select name="Categoria"  class="form-control mb-4" >
-                      <option value="">Selecione uma Categoria</option>
-                      {{#each Categoria}}
-                      <option value="{{ N_ID_Categoria}}">{{T_NomeCategoria}}</option>
-                      {{/each}}
-                    </select>
-
-                    <input type="submit" class="btn btn-danger" id="ca" value="Gravar">
-                    <a href="/"class="btn btn-danger  ">Cancelar</a>
-            </div>
+          <input type="file" name="imagem" class=" btn btn-danger mt-3" id="f_foto">
+          <br class="clearfix">
         </div>
+
+        <div class="col-12 col-sm-6">
+          <input type="text" name="nome" class="form-control" placeholder="Nome do produto" required>
+          <input type="number" name="valor" class="form-control" placeholder="valor do produto" required>
+          <textarea placeholder="Decrição do Produto" class="form-control mb-2 " name="dsc"
+            style="height: 200px;" required></textarea>
+          <select name="Categoria" class="form-control mb-4">
+            <option value="">Selecione uma Categoria</option>
+            {{#each Categoria}}
+            <option value="{{ N_ID_Categoria}}">{{T_NomeCategoria}}</option>
+            {{/each}}
+          </select>
+
+          <input type="submit" class="btn btn-danger" id="ca" value="Gravar">
+
+          <a href="/" class="btn btn-danger  ">Cancelar</a>
+        </div>
+
       </div>
-     </form>
-    </div>
-    </main>
+
+  </div>
+
+  </form>
+
+  </div>
+
+</main>

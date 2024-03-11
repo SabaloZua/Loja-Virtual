@@ -6,4 +6,5 @@ const Controller=require('../Controllers/Contorller-Login')
 
 // Rota que busca a Pagina de Login
 Router.get('/',Controller.BuscarPaginaLogin);
-module.exports=Route
+
+module.exports=Router

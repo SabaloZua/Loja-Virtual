@@ -6,7 +6,8 @@
  // Importando as rotas
 const RotaUsuario=require('./Routes/Usuario');
 const RotaProduto=require('./Routes/Produto');
-const RotaLogin=require('./Routes/Login')
+const RotaLogin=require('./Routes/Login');
+const RotaSobre=require('./Routes/sobre');
 const fileupload=require('express-fileupload')
 app.use(fileupload());
 
@@ -52,18 +53,16 @@ app.use(express.urlencoded({
 const conecao=require('./Modules/db');
 
 //Rota principal
-app.get('/',(req,res)=>{
- let sql=`select * from tb_produto`
- conecao.query(sql,(erro,resultado)=>{
-   if(!erro){
-      res.render('home',{Produto:resultado});
-   }
- })
+app.get('/', async(req,res)=>{
+ let sql=`select * from tb_produto order by rand()`
+const [resultado]=await conecao.query(sql);
+ 
+res.render('home',{Produto:resultado,
+                        style:[
+                            {Link:"estliloCardProd.css"}
+                        ]
+});
 
-// res.render('home',{style:[
-//    {Link:"estliloCardProd.css"}
-// ]
-// })
 });
 
 
@@ -76,7 +75,7 @@ app.use('/Produto',RotaProduto);
 //  Dizedendo ao express(app) para usar a Rota de Longin
 app.use('/Login',RotaLogin);
 
-
+app.use('/Sobre-nos',RotaSobre);
 
 
 app.listen(3000,()=>console.log("servidor Ligado na porta 3000"));

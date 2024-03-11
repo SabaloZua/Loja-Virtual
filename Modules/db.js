@@ -1,13 +1,13 @@
-const mysql=require('mysql2');
-
-const conecao=mysql.createConnection({
+const mysql=require('mysql2/promise');
+require('dotenv').config();
+const conecao=mysql.createPool(
+    {
     host:'localhost',
     user:'root',
-    password:'astro$17',
-    database:"ecommerce"
- });
-
+    password:process.env.PassBD,
+    database:process.env.DataBase
+ }
+ );
 
  
-
  module.exports=conecao;

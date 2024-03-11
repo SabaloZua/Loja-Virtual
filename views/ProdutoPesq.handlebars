@@ -5,11 +5,11 @@
                             <div class="col-12 col-md-5">
                                 <form action="/Produto/Buscar" method="post" class="justify-content-center justify-content-md start mb-3 mb-md-0 ">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Buscar produto" name="NomeProduto" required>
-                                        <div class="input-group-append" >
+                                        <input type="text" class="form-control" placeholder="Buscar produto" name="NomeProduto">
+                                        <div class="input-group-append">
                                           <button class=" btn btn-danger input-group-text" type="submit">
-                                          <span class="" id="basic-addon2 ">Buscar</span>
-                                          </button>
+                                        <span class="" id="basic-addon2 ">Buscar</span>
+                                        </button>
                                         </div>
                                       </div>
                                 </form>
@@ -34,23 +34,27 @@
 <main class="flex-fill">
   <div class="container">
         <div class="row">
+        {{#if Produto}}
           {{#each Produto}}
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card ">
                   <div class="imgProd">
-
                     <img src="/imgs/{{T_Imagem}}" alt="foto de camisa">
                   </div>
                    <div class="textos"> 
                      <p>{{T_Nome_Produto}}</p>
                     <p>{{N_Preco}} KZS</p>
                    </div>
-                    <a href="/formularioEditar" class="btn btn-warning  ">Fale com o Fornecedor</a>
+                    <a href="/formularioEditar" class="btn btn-warning  ">Fazer compra</a>
                     <a href="/Produto/Detalhes/{{N_id_Produto}}" class="btn btn-danger">Ver mais detalhes</a>
                 </div>
             </div>
             {{/each}}
-            
+
+
+            {{else}}
+            <p class="lead"> Erro Produto não encontrado ! </p>
+            {{/if}}
         </div>
     </div>
 </main>

@@ -3,10 +3,13 @@
         <div class="container">
       <div class="row g-3">
         <div class="col-12 col-sm-6">
+            <div class="imgProduto">
             <img src="/imgs/{{Produto.T_Imagem}}" alt="" class="img-thumbnail">
+            </div>
             <br class="clearfix">
             </div>
             <div class="col-12 col-sm-6">
+                <input type="hidden">
                 <h1>{{Produto.T_Nome_Produto}}</h1>
                 <p>
                   {{Produto.T_Descricao_Produto}}
@@ -17,23 +20,18 @@
                 </p>
             </div>
             <div class="col-12 col-sm-6">
+
             <div class="row my-3 gx-3">
                 <h2 class="text-break">Produtos relacionados</h2>
+                {{#each ProdsCateg}}
                 <div class="col-3">
-                    <a href="/">
-                    <img src="/imgs/03.jpeg" alt="" class="img-thumbnail">
+                    <a href="/Produto/detalhes/{{N_id_Produto}}">
+                    <img src="/imgs/{{T_Imagem}}" alt="" class="img-thumbnail">
                     </a>
                 </div>
-                <div class="col-3">
-                    <img src="/imgs/01.jpeg" alt="" class="img-thumbnail">
-                </div>
-                <div class="col-3">
-                    <img src="/imgs/07.jpeg" alt="" class="img-thumbnail">
-                </div>
-                <div class="col-3">
-                    <img src="/imgs/08.jpeg" alt="" class="img-thumbnail">
-                </div>
+               {{/each}}
             </div>
+
         </div>
       </div>
     </div>
