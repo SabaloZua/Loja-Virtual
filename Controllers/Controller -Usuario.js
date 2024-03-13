@@ -5,7 +5,11 @@ const { sendTestEmail } = require("../Modules/Email.js");
 exports.Buscarusuario = async (req, res) => {
    let sql = 'select * from tb_fucao_comercial';
    try {
+     
+
+   
       const [resultado] = await conecao.query(sql);
+
       res.render('cadastroUsuario', { fucaoComercial: resultado })
    } catch (erro) {
       console.log(`erro ao ${erro}`);
@@ -39,3 +43,6 @@ exports.Cadastrar = async (req, res) => {
       console.log(erro);
    }
 }   
+exports.BuscarPaginaDados =async(req,res)=>{
+      res.render('DadosCliente');
+}

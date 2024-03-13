@@ -8,7 +8,11 @@ const RotaUsuario=require('./Routes/Usuario');
 const RotaProduto=require('./Routes/Produto');
 const RotaLogin=require('./Routes/Login');
 const RotaSobre=require('./Routes/sobre');
+const session=require('express-session');
+const flash =require('connect-flash');
+const passport = require('passport');
 const fileupload=require('express-fileupload')
+require('./Modules/PassaportConfig')(passport);
 app.use(fileupload());
 
 
@@ -46,6 +50,35 @@ app.use(express.urlencoded({
 }));
 
 
+//Configurando a sessão
+
+app.use(session({
+    secret:'1234',
+    resave:true,
+    saveUninitialized:true
+}));
+
+// Configurar passart
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Configurnado Flahs
+
+app.use(flash());
+
+// Variveis GLOBAIS
+app.use((req,res,next)=>{
+    res.locals.success_msg=req.flash('success_msg');
+    res.locals.error_msg=req.flash('error_msg');
+    res.locals.error=req.flash("error");
+    res.locals.user= req.user|| null;
+    next();
+    
+});
+
+
+
 //add routas
 // const Usuario=require('./Routes/Usuario');
 
@@ -55,13 +88,16 @@ const conecao=require('./Modules/db');
 //Rota principal
 app.get('/', async(req,res)=>{
  let sql=`select * from tb_produto order by rand()`
-const [resultado]=await conecao.query(sql);
+//  const IdDoUsuario =req.session.passport.user;
+
+ const [resultado]=await conecao.query(sql);
  
-res.render('home',{Produto:resultado,
-                        style:[
-                            {Link:"estliloCardProd.css"}
-                        ]
+ res.render('home',{Produto:resultado,
+    style:[
+        {Link:"estliloCardProd.css"}
+    ]
 });
+
 
 });
 

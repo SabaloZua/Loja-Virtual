@@ -32,7 +32,10 @@ exports.BuscarPaginaDetalhes = async (req, res) => {
    const id = req.params.id;
 
    let sql = `select * from tb_produto where N_id_Produto=${id}`;
+
    const [resultado] = await conecao.query(sql);
+   
+  
    let sql2=`select * from tb_produto where  N_ID_Categoria=${resultado[0].N_ID_Categoria} and N_id_Produto!=${id} order by rand() limit 3`;
    const [ProdCategoria]= await conecao.query(sql2);
 
@@ -58,11 +61,11 @@ exports.Cadastrar = async (req, res) => {
    const imagem = req.files.imagem.name;
    //caminho da pasta onde será gravada as imgs ATT: path.join utlizada para concatenar caminhos ex:C:\\users\\Desktop\\LojaVirtual\\public\\imgs\\nome da imagem
    const caminhoImagem = path.join(__dirname, '..', 'public', 'imgs', req.files.imagem.name);
-
+   const IDuser=req.session.passport.user;
    const Categoria = req.body.Categoria
    console.log(caminhoImagem);
    let sql = `insert into tb_produto (T_Nome_Produto,N_Preco,T_Descricao_Produto,T_Imagem,Id_usuario,N_ID_Categoria)
-             values('${nomeProduto}',${valor},'${dsc}','${imagem}',1 ,${Categoria})`;
+             values('${nomeProduto}',${valor},'${dsc}','${imagem}',${IDuser} ,${Categoria})`;
 
    // Tentativa de execução de uma consulta SQL
    try {

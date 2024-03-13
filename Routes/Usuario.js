@@ -11,6 +11,7 @@ Routes.get('/',Contorller.Buscarusuario);
 //Rota que faz o cadastro do usuario
 Routes.post('/Cadastrar',Contorller.Cadastrar)
 
+Routes.get('/Minha_Conta',Contorller.BuscarPaginaDados);
 
 module.exports=Routes
 

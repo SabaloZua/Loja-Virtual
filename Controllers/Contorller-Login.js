@@ -1,3 +1,4 @@
+const passport=require('passport');
 // obetendo a coneção com a BD
 const conecao = require("../Modules/db")
 
@@ -13,4 +14,8 @@ exports.BuscarPaginaLogin=(req,res)=>{
         {Link:"Login.css"}
      ]
   })
+}
+
+exports.Iniciar_Sessao=async(req,res,next)=>{
+  passport.authenticate('local',{successRedirect:'/',failureRedirect:'/Login',failureFlash:true})(req,res,next);
 }
